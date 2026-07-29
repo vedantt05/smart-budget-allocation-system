@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Budget Allocation System | Dynamic Programming</title>
+
+<meta name="description"
+content="Smart Budget Allocation System using 0/1 Knapsack Algorithm">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="style.css">
+
+<script
+src="https://kit.fontawesome.com/6c63d3a5e7.js"
+crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- BACKGROUND EFFECTS -->
+<!-- ========================= -->
+
+<div class="bg-blur blur1"></div>
+
+<div class="bg-blur blur2"></div>
+
+<div class="bg-grid"></div>
+
+<!-- ========================= -->
+<!-- NAVBAR -->
+<!-- ========================= -->
+
+<nav>
+
+<div class="logo">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<span>
+
+Budget Optimizer
+
+</span>
+
+</div>
+
+<ul>
+
+<li>
+
+<a href="#home">
+
+Home
+
+</a>
+
+</li>
+
+
+<li>
+
+<a href="#optimizer">
+
+Optimizer
+
+</a>
+
+</li>
+
+
+
+<li>
+
+<a href="#team">
+
+Team
+
+</a>
+
+</li>
+
+</ul>
+
+<a href="#optimizer"
+class="nav-btn">
+
+Launch
+
+</a>
+
+</nav>
+
+<!-- ========================= -->
+<!-- HERO -->
+<!-- ========================= -->
+
+<section
+id="home"
+class="hero">
+
+<div class="hero-left">
+
+<div class="hero-badge">
+
+<i class="fa-solid fa-circle-check"></i>
+
+Mini Project
+
+•
+
+Dynamic Programming
+
+</div>
+
+<h1>
+
+Smart
+
+<span>
+
+Budget Allocation
+
+</span>
+
+System
+
+</h1>
+
+<p>
+
+
+<strong>
+
+
+Optimize your budget using Dynamic Programming.
+
+
+</strong>
+
+
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#optimizer"
+class="primary-btn">
+
+Start Optimizing
+
+</a>
+
+
+
+</div>
+
+<div class="hero-stats">
+
+<div class="stat-card">
+
+<h2>
+
+O(n × W)
+
+</h2>
+
+<p>
+
+Time Complexity
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>
+
+Dynamic
+
+</h2>
+
+<p>
+
+Programming
+
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h2>
+
+100%
+
+</h2>
+
+<p>
+
+Optimal
+Selection
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="hero-right">
+
+<div class="glass-window">
+
+<div class="window-header">
+
+<span></span>
+
+<span></span>
+
+<span></span>
+
+</div>
+
+<div class="dashboard">
+
+<div class="dashboard-title">
+
+Budget Dashboard
+
+</div>
+
+<div class="progress">
+
+<div class="progress-fill"></div>
+
+</div>
+
+<div class="dashboard-cards">
+
+<div class="mini-card">
+
+<i class="fa-solid fa-wallet"></i>
+
+<h3>
+
+Budget
+
+</h3>
+
+<h4>
+
+₹80,000
+
+</h4>
+
+</div>
+
+<div class="mini-card">
+
+<i class="fa-solid fa-box"></i>
+
+<h3>
+
+Items
+
+</h3>
+
+<h4>
+
+5
+
+</h4>
+
+</div>
+
+<div class="mini-card">
+
+<i class="fa-solid fa-bolt"></i>
+
+<h3>
+
+Algorithm
+
+</h3>
+
+<h4>
+
+0/1 KP
+
+</h4>
+
+</div>
+
+<div class="mini-card">
+
+<i class="fa-solid fa-chart-column"></i>
+
+<h3>
+
+Benefit
+
+</h3>
+
+<h4>
+
+170
+
+</h4>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NEXT PART STARTS FROM OPTIMIZER SECTION -->
+ <!-- ========================= -->
+<!-- OPTIMIZER -->
+<!-- ========================= -->
+
+<section
+id="optimizer"
+class="optimizer">
+
+<div class="section-heading">
+
+<p>
+
+LIVE DEMONSTRATION
+
+</p>
+
+<h2>
+
+Budget Optimizer
+
+</h2>
+
+</div>
+
+<div class="optimizer-wrapper">
+
+<div class="glass-card">
+
+<h3>
+
+Available Budget
+
+</h3>
+
+<input
+type="number"
+id="budget"
+placeholder="Example : 80000">
+
+<div class="table-header">
+
+<h3>
+
+Project Resources
+
+</h3>
+
+<button
+class="add-btn"
+onclick="addRow()">
+
+<i class="fa-solid fa-plus"></i>
+
+Add Item
+
+</button>
+
+</div>
+
+<table id="itemsTable">
+
+<thead>
+
+<tr>
+
+<th>Item</th>
+
+<th>Cost</th>
+
+<th>Benefit</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>
+
+<input
+type="text"
+value="Laptop">
+
+</td>
+
+<td>
+
+<input
+type="number"
+value="50000">
+
+</td>
+
+<td>
+
+<input
+type="number"
+value="90">
+
+</td>
+
+<td>
+
+<button
+class="delete-btn"
+onclick="deleteRow(this)">
+
+<i class="fa-solid fa-trash"></i>
+
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<input
+type="text"
+value="Projector">
+
+</td>
+
+<td>
+
+<input
+type="number"
+value="25000">
+
+</td>
+
+<td>
+
+<input
+type="number"
+value="50">
+
+</td>
+
+<td>
+
+<button
+class="delete-btn"
+onclick="deleteRow(this)">
+
+<i class="fa-solid fa-trash"></i>
+
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<input
+type="text"
+value="Printer">
+
+</td>
+
+<td>
+
+<input
+type="number"
+value="15000">
+
+</td>
+
+<td>
+
+<input
+type="number"
+value="35">
+
+</td>
+
+<td>
+
+<button
+class="delete-btn"
+onclick="deleteRow(this)">
+
+<i class="fa-solid fa-trash"></i>
+
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<input
+type="text"
+value="Router">
+
+</td>
+
+<td>
+
+<input
+type="number"
+value="10000">
+
+</td>
+
+<td>
+
+<input
+type="number"
+value="20">
+
+</td>
+
+<td>
+
+<button
+class="delete-btn"
+onclick="deleteRow(this)">
+
+<i class="fa-solid fa-trash"></i>
+
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+
+<input
+type="text"
+value="UPS">
+
+</td>
+
+<td>
+
+<input
+type="number"
+value="12000">
+
+</td>
+
+<td>
+
+<input
+type="number"
+value="25">
+
+</td>
+
+<td>
+
+<button
+class="delete-btn"
+onclick="deleteRow(this)">
+
+<i class="fa-solid fa-trash"></i>
+
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<button
+class="calculate-btn"
+onclick="solveKnapsack()">
+
+<i class="fa-solid fa-play"></i>
+
+Optimize Budget
+
+</button>
+
+</div>
+
+<div class="glass-card">
+
+<h3>
+
+Optimization Result
+
+</h3>
+
+<div
+id="result">
+
+Waiting for calculation...
+
+</div>
+
+<div class="stats-grid">
+
+<div class="result-box">
+
+<h4>
+
+Selected Items
+
+</h4>
+
+<h2 id="selectedItems">
+
+0
+
+</h2>
+
+</div>
+
+<div class="result-box">
+
+<h4>
+
+Total Benefit
+
+</h4>
+
+<h2 id="benefitValue">
+
+0
+
+</h2>
+
+</div>
+
+<div class="result-box">
+
+<h4>
+
+Remaining Budget
+
+</h4>
+
+<h2 id="remainingBudget">
+
+₹0
+
+</h2>
+
+</div>
+
+<div class="result-box">
+
+<h4>
+
+Budget Used
+
+</h4>
+
+<h2 id="usedPercentage">
+
+0%
+
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- TEAM -->
+<!-- ========================= -->
+
+<section
+id="team"
+class="team">
+
+<div class="section-heading">
+
+<p>
+
+PROJECT MEMBERS
+
+</p>
+
+<h2>
+
+Development Team
+
+</h2>
+
+</div>
+
+<div class="team-grid">
+
+<div class="team-card">
+
+<div class="avatar">
+
+🙋🏻‍♂️
+
+</div>
+
+<h3>
+
+Vedant Yewale
+
+</h3>
+
+<p>
+
+Project Leader
+
+</p>
+
+</div>
+
+<div class="team-card">
+
+<div class="avatar">
+
+💁🏻‍♂️
+
+</div>
+
+<h3>
+
+Vaibhav Ambedare
+
+</h3>
+
+<p>
+
+Frontend Developer
+
+</p>
+
+</div>
+
+<div class="team-card">
+
+<div class="avatar">
+
+🙆🏻‍♂️
+
+</div>
+
+<h3>
+
+Akash Sanap
+
+</h3>
+
+<p>
+
+Algorithm Designer
+
+</p>
+
+</div>
+
+<div class="team-card">
+
+<div class="avatar">
+
+🤷🏻‍♂️
+
+</div>
+
+<h3>
+
+Pritam Bhoyar
+
+</h3>
+
+<p>
+
+Documentation
+
+</p>
+
+</div>
+
+<div class="team-card">
+
+<div class="avatar">
+
+🙇🏻‍♂️
+
+</div>
+
+<h3>
+
+Parth Ralekar
+
+</h3>
+
+<p>
+
+Testing & Presentation
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+
+<footer>
+
+<p>
+
+© 2026 Smart Budget Allocation System
+
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
