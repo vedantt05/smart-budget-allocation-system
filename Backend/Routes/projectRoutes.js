@@ -12,7 +12,7 @@ import {
 
     deleteProject
 
-} from "../Controllers/projectController.js";
+} from "../controllers/projectController.js";
 
 const router = express.Router();
 
