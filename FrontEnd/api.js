@@ -3,7 +3,7 @@
 ========================================== */
 
 // Local development
-const API_BASE_URL = "http://localhost:50https://smart-budget-allocation-system.onrender.com/api00/api";
+const API_BASE_URL = "https://smart-budget-allocation-system.onrender.com/api";
 
 // Production (Render)
 // const API_BASE_URL = "https://your-backend-name.onrender.com/api";

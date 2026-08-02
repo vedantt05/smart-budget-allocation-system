@@ -1,3 +1,9 @@
+const token = localStorage.getItem("token");
+
+if (!token) {
+    window.location.href = "login.html";
+}
+
 const API = "https://smart-budget-allocation-system.onrender.com/api";
 
 const token = localStorage.getItem("token");
