@@ -1,4 +1,4 @@
-const API = "http://localhost:5000/api";
+const API = "https://smart-budget-allocation-system.onrender.com/api";
 
 const token = localStorage.getItem("token");
 /* ===========================================================
