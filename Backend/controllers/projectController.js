@@ -1,4 +1,4 @@
-import Project from "../Models/project.js";
+import Project from "../models/project.js";
 
 /* ==========================================
    CREATE PROJECT
